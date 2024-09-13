@@ -1,0 +1,1 @@
+tqlCTF{can_you_take_roots_of_the_third_degree}

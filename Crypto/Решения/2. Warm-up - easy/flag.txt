@@ -1,0 +1,1 @@
+tqlCTF{crypt_cures_cancer}
