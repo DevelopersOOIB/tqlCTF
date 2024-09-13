@@ -1,0 +1,15 @@
+Название: Slow n furious
+
+Описание: You haven't been seen at street races for a long time. I will give you this flag only if you prove that you are fast enough. Show me what you can. Good luck!
+
+
+writeup:
+1. В архиве файл без расширения, чекаем хидеры чем угодно видим пнг, подставляем расширение файлу
+2. Появляется картинка с всратым виндизелем 
+3. В картинку вшит не менее всратый мп3, декодируем с помощью Hallucinate
+4. Этот мп3 нужно оч сильно ускорить и тогда можно услышать флаг в аудиоформате поверх шума от трека (шум в целом можно снять фильтром той же ФЛ-ки)
+
+
+
+Flag:
+tqlCTF{You_so_fast}

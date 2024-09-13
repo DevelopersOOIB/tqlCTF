@@ -1,0 +1,18 @@
+Название: Reliability 
+
+Описание: I'm sure my message will be delivered and no one will read it. 
+
+
+
+Writeup:
+Change the extension to .rar and we see that it is an archive and there are two files, a picture and some private key.
+
+There is a password hidden in the metadata of the picture, which will be needed to extract a .txt file with a flag from the same picture using a private key.
+
+the program is called File_Hider
+
+
+Флаг:
+tqlCTF{Th1s_1s_hard_st3g}
+
+author: A1ERTA

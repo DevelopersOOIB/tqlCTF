@@ -1,0 +1,6 @@
+audio file with morse, but when we decode it we get the phrase "there's nothing here"
+The flag is in the metadata 
+
+tqlctf{n0_m0rs3_ciph3r}
+
+author: A1ERTA
