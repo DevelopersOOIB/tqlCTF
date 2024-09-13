@@ -1,0 +1,33 @@
+version: '3'
+services:
+    php:
+        build:
+            context: ./docker
+            dockerfile: php.Dockerfile
+        container_name: hrboard-php
+        volumes:
+            - './flag.txt:/etc/flag.txt'
+            - './app:/var/www/html'
+        depends_on:
+            - mariadb
+
+    nginx:
+        image: nginx:latest
+        container_name: hrboard-nginx
+        ports:
+            - '8080:80'
+        links:
+            - 'php'
+        volumes:
+            - './flag.txt:/etc/flag.txt'
+            - './app:/var/www/html'
+            - './config/nginx:/etc/nginx/conf.d'
+
+    mariadb:
+        image: mariadb
+        container_name: hrboard-mariadb
+        restart: 'always'
+        volumes:
+            - './init.sql:/docker-entrypoint-initdb.d/init.sql'
+        environment:
+            MARIADB_ROOT_PASSWORD: "SuperPupperMariaDbPassw0rdLolWTFHAHAHAHA"

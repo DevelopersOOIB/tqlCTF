@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for product in products %}
+<div class="d-flex justify-content-center" style="margin-top: 15px;">
+    <div class="card text-center" style="width: 36rem;">
+        
+        <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">{{ product.description }}</p>
+            <img src="{{ url_for('static', filename=product.avatar) }}">
+            <p></p>
+            <a href="/buy/{{ product.id }}"><button class="btn btn-outline-success me-2" type="button" style="width: 300px; margin-top: 5px;">Buy for {{ product.price }} coins!</button></a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

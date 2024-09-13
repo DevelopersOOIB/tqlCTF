@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "type": "Tequila",
+    "brand": "Olmeca",
+    "amount": 50
+  },
+  {
+    "id": 2,
+    "type": "Gin",
+    "brand": "Barrister",
+    "amount": 70
+  },
+  {
+    "id": 3,
+    "type": "Vodka",
+    "brand": "Beluga",
+    "amount": 15
+  },
+  {
+    "id": 4,
+    "type": "Beer",
+    "brand": "Guinness",
+    "amount": 600
+  },
+  {
+    "id": 5,
+    "type": "Rum",
+    "brand": "Plantation",
+    "amount": 87
+  },
+  {
+    "id": 6,
+    "type": "Liquor",
+    "brand": "Bols",
+    "amount": 63
+  },
+  {
+    "id": 1337,
+    "type": "Flag",
+    "brand": "tqlCTF{N0t_a_R34L_fl4g_s0rry}",
+    "amount": 31337
+  }
+]

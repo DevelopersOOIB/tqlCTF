@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="d-flex align-items-center justify-content-center vh-100">
+    <div class="card text-center" style="width: 36rem;">
+        <div class="card-header">
+            Welcome!!! Your current balance is <b>{{ session['coins'] }}</b> coins.
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Farm more coins in our clicker</h5>
+            <form action="/farm_coin" method="post">
+                <button class="btn btn-outline-success me-2">Get more coins!</button>
+            </form>
+            <p class="card-text"></p>
+            <p class="card-text">Change coins to different products in our shop.</p>
+            <a href="/shop"><button class="btn btn-outline-success me-2" type="button">Buy products now!</button></a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

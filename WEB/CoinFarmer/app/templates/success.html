@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="d-flex justify-content-center" style="margin-top: 15px;">
+    <div class="card text-center" style="width: 36rem;">
+        
+        <div class="card-body">
+            <h5 class="card-title">Congratulations!!! You buy {{ product.name }}</h5>
+            <p class="card-text">{{ product.description }}</p>
+            <img src="{{ url_for('static', filename=product.avatar) }}">
+            <p></p>
+            <a href="/shop"><button class="btn btn-outline-success me-2" type="button" style="margin-top: 5px;">Continue shopping!</button></a>
+            <p></p>
+            <a href="/farm_coin"><button class="btn btn-outline-success me-2" type="button" style="margin-top: 5px;">Or farm more coins!</button></a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

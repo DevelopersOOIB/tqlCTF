@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for product in session["products"] %}
+<div class="d-flex justify-content-center" style="margin-top: 15px;">
+    <div class="card text-center" style="width: 36rem;">
+        
+        <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            {% if product.flag %}
+            <h5 class="card-title">FLAG is {{ product.flag }}</h5>
+            {% endif %}
+            <p class="card-text">{{ product.description }}</p>
+            <img src="{{ url_for('static', filename=product.avatar) }}">
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
