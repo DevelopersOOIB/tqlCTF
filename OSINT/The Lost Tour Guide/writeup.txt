@@ -1,0 +1,18 @@
+Название: Заблудившийся экскурсовод
+
+Описание: Сегодня мой первый день работы экскурсоводом. Отучившись на факультете Истории России, я решил пойти подрабатывать. Мне скинули эту фотографию, без какой-либо другой информации. Помогите найти координаты, я опаздываю!
+
+Решение: Забиваем картинку в поисковики. Понимаем, что это Музей-панорама "Сталинградская битва". Далее в google maps, или сторонними средствами необходимо найти точный ракурс фотографии. Из URL вытаскиванием долготу и широту (пример: https://www.google.ru/maps/place/name/@48.7165529,44.5333031,3a,75y,190.27h,96.38t/data=)
+Здесь, 48.7165529,44.5333031 - долгота и широта. Отделяем их между собой нижним подчёркиванием.
+
+Флаг: tqlCTF{48.7165529_44.5333031}
+
+
+Name: The Lost Tour Guide
+
+Description: Today is my first day as a tour guide. After studying at the Russian History Department, I decided to take a part-time job. I was sent this photo, without any other information. Help me find the coordinates, I'm late!
+
+Solution: We put the image in the search engines. We understand that this is a panorama Museum of the Battle of Stalingrad. Next, in Google maps, or by third-party means, you need to find the exact angle of the photo. By pulling longitude and latitude from the URL (example: https://www.google.ru/maps/place/name/@48.7165529 ,44.5333031,3a,75y,190.27h,96.38t/data=)
+Here, 48.7165529,44.5333031 - longitude and latitude. We separate them with an underscore.
+
+Flag: tqlCTF{48.7165529_44.5333031}

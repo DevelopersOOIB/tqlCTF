@@ -1,0 +1,6 @@
+We just need to remove the negative from the photo and a little bit of filtering and we find that it's San Juan de Ulúa, which is the flag.
+
+tqlCTF{San_Juan_de_Ulúa}
+
+
+author: A1ERTA

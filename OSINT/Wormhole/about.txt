@@ -1,0 +1,18 @@
+Название: Червоточина
+Описание: Специалисты, причастные к расследованию события X, нашли странную записку где-то в сухопутных местах Атлантического океана, вероятно, оставленную в 1955 году. Мне нужно полное имя причастного к этому событию человека! Того самого ОЧЕВИДЦА воздушного движения...
+
+Решение: Это задание на сплошной гуглёж. На входе мы видим файл, в котором сырой текст, получившийся из нейросети яндекса при считывании текста из картинки, которая относится к событию. Методом гуглежа этого сырого текста по разным поисковикам, есть вероятность её найти. Ну а дальше - поиск по этой картинке. Понимаем, что речь про рейс 914, где с 1955 пропал самолет во время полёта и прилетел в пункт назначения спустя 37 лет. Имя пилота - флаг.
+
+Флаг: tqlCTF{Juan_de_La_Corte}
+
+Автор: @sh1_m0n
+
+
+Name: Wornhole
+Description: Experts involved in the investigation of event X found a strange note somewhere in the land areas of the Atlantic Ocean, probably left in 1955. I need the full name of the person involved in this event! The same EYEWITNESS to the air traffic...
+
+Solution: This is a google search assignment. At the entrance, we see a file containing raw text obtained from the Yandex neural network when reading text from an image that refers to an event. By searching for this raw text in different search engines, there is a chance to find it. Well, then - search for this picture. We understand that we are talking about flight 914, where since 1955 the plane disappeared during the flight and arrived at its destination 37 years later. The pilot's name is the flag
+
+Flag: tqlCTF{Juan_de_La_Corte}
+
+Author: @sh1_m0n
