@@ -1,0 +1,38 @@
+Название: Насекомые и их знакомые
+Описание: Считаете ли вы, что каждый человек имеет право на неприкосновенность частной жизни и анонимность? Вы считаете, что информация должна быть свободной? Вы верите, что цензура вредит человечеству
+
+write up:
+Картинка имеет зашифрованную формулу. Берем любой инструмент, например steghide
+steghide extract -sf image.png
+
+достается secret.txt. Содержит формулу 2CZ5BNORQDIL5UFZEDIYBUFQ2GA5DAOQXPILLUFU2C7NBMWQWDIL3UFY2GHSELROFYRA (PT09PQ + LS4uLi0gLS4uLi0=) = ?
+
+Вспоминаем математику, считаем в скобках. Второе слагаемое в скобках - декод base64. Получаем -...-...- 
+Это морзянка. Декодим, получаем два равно (= =).
+Декодим первое слагаемое, прибавляя к нему те два "равно", получаем  четыре равно (= = = =)
+
+Строка за скобками - base32. Добавляем в конец четыре равно и получаем "герой расследования"..."
+
+Дальше осинт. Можем найти вк пост, где рассказывается о человеке на фото, как он причастен к Цикаде 3301 (Маркус Уоннер). Он герой расследования "Rolling Store" во времена поиска отгадок заданий цикады. (да, знаки "равно" являются как отвлекающий манёвр. Но кто знает, тот знает, что они необязательны).
+
+Флаг: tqlCTF{Rolling_Store}
+
+Автор: @sh1_m0n
+
+
+Name: Insects and their acquaintances
+Description: Do you think that everyone has the right to privacy and anonymity? Do you think that information should be free? Do you believe that censorship harms humanity?
+
+write up:
+The picture has an encrypted formula. We take any tool, for example: steghide
+steghide extract -sf image.jpg
+Including secret.txt. it contains the formula 2CZ5BNORQDIL5UFZEDIYBUFQ2GA5DAOQXPILLUFU2C7NBMWQWDIL3UFY2GHSELROFYRA (PT09PQ + LS4uLi0gLS4uLi0=) = ?
+We remember mathematics, we count in parentheses. The second term in parentheses is the base64 decode. We get -...-...- 
+This is Morse code. Decode, we get two equal to (= =).
+Decode the first term, adding those two "equals" to it, we get four equals (= = = =)
+The string behind the brackets is base32. Add four equals to the end and we get the "hero of the investigation"..."
+
+Next is the osint. We can find a VK post that tells about the man in the photo, how he is involved in Cicada 3301 (Marcus Wanner). He is the hero of the Rolling Store investigation during the time of the cicada quest. (yes, the "equals" signs are like a red herring. But who knows, he knows that they are optional).
+flag: tqlCTF{Rolling_Store}
+
+Author: @sh1_m0n
