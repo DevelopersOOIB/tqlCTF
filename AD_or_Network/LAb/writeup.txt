@@ -1,0 +1,10 @@
+Lab
+I set something up, and I don't know if it's working or not.
+
+there is a flag hidden in the snmp server
+all you have to do is type ‘ show running-config ’ to see the flag. 
+
+flag : tqlCTF{S3cr3t_c0nf_fl4g}
+
+
+author: A1ERTA

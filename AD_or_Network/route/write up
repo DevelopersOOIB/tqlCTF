@@ -1,0 +1,15 @@
+route
+our sys admin did something and disappeared and now I can't web,  help me. 
+192.168.5.12
+
+
+
+writeup:
+
+it is necessary to configure routing, and connect from the PC to the last router, the password to telnet admin, the participants themselves should reach it and plus access to telnet only through the web.
+
+
+нужно настроить маршрутизацию, и подключиться с пк до последнего роутера через веб , пароль до роутера admin/admin, участники сами до этого должны дойти.
+
+flag: tqlCTF{s3cc3s_c0nn3ct_w3b}
+
