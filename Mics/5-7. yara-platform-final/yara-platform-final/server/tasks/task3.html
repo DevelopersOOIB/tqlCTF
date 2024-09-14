@@ -1,0 +1,78 @@
+<html>
+<head>
+	<title>Задание #3</title>
+</head>
+<body>
+	<style>
+		@font-face {
+			font-family: BlenderPro;
+			src: url(../BlenderPro-Medium.woff2);
+		}
+		
+		body {
+			background-color: black;
+		}
+		
+		.atomic-text {
+			color: white;
+			font-size: 20px;
+			font-family: BlenderPro;
+		}
+		
+		#yara-box {
+			font-size: 12px;
+			font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+			background-color: #eeffcc;
+		}
+		
+		#the_button {
+			font-size: 20px;
+			padding: 10px;
+			font-family: BlenderPro,sans-serif;
+			background-color: black;
+			color: white;
+			border: 3px solid #f22f20;
+			transition: all .5s ease-in;
+		}
+		
+		#the_button:link { text-decoration: none; }
+
+		#the_button:hover { background-color: #f22f20;  }
+		
+		#main-box {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+		}
+	</style>
+	<div id="main-box">
+		<p class="atomic-text">
+		Последняя <a class="atomic-text" href="/task/3/sample">секция</a> хранилища!<br>
+		Вы знаете что делать.<br>
+		</p>
+		<form action="/task/3" method="POST">
+			<textarea id="yara-box" name="yara_rule" rows="20" cols="120" maxlength="10000" spellcheck="false" placeholder="// Введите сюда Yara правило"></textarea><br><br>
+			<input type="submit" id="the_button" value="Отправить">
+		</form>
+	</div>
+	<script>
+		document.getElementById('yara-box').addEventListener('keydown', function(e) {
+			if (e.key == 'Tab') {
+				e.preventDefault();
+				var start = this.selectionStart;
+				var end = this.selectionEnd;
+
+				// set textarea value to: text before caret + tab + text after caret
+				this.value = this.value.substring(0, start) +
+				"    " + this.value.substring(end);
+
+				// put caret at right position again
+				this.selectionStart =
+				this.selectionEnd = start + 4;
+			}
+		});
+	</script>
+</body>
+</html>

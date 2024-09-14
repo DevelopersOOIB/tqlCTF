@@ -1,3 +1,4 @@
-# tqlCTF
+# codeboobsters__ctf
+**This page is intended for ctf task developers**
 
-An officital TQL CTF writeup repository
+## Решения заданий писать сюда
