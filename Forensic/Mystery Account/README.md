@@ -3,4 +3,4 @@
 
 The task is solved using kerberos error code as filter
 
-![telegram-cloud-document-2-5242264758819771703](https://github.com/user-attachments/assets/ddc19a3a-478d-48c4-815f-0ed061bd1f1d)
+![telegram-cloud-photo-size-2-5235464859678792969-y](https://github.com/user-attachments/assets/b0fc5d1d-5f47-45b4-a79b-550eb75cf41d)
